@@ -14,5 +14,27 @@
       "title": "Blog",
       "url": "#"
     }
-  ]
+  ],
+  "slideinfo": [{
+    "id": 1,
+    "titleFirst": "Inspire your inspiration",
+    "titleSecond": "Simple to use for your app, products showcase and your inspiration",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros eget tellus tristique bibendum. Donec rutrum sed sem quis venenatis. Proin viverra risus a eros volutpat tempor. In quis arcu et eros porta lobortis sit",
+    "imgBig": "../dist/ipad-white.png",
+    "icons": ["../dist/icon-fa-apple.png", "../dist/icon-fa-android.png", "../dist/icon-fa-windows.png"]
+  }, {
+    "id": 1,
+    "titleFirst": "Inspire your inspiration",
+    "titleSecond": "Simple to use for your app, products showcase and your inspiration",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros eget tellus tristique bibendum. Donec rutrum sed sem quis venenatis. Proin viverra risus a eros volutpat tempor. In quis arcu et eros porta lobortis sit",
+    "imgBig": "../dist/ipad-white.png",
+    "icons": ["../dist/icon-fa-apple.png", "../dist/icon-fa-android.png", "../dist/icon-fa-windows.png"]
+  }, {
+    "id": 1,
+    "titleFirst": "Inspire your inspiration",
+    "titleSecond": "Simple to use for your app, products showcase and your inspiration",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros eget tellus tristique bibendum. Donec rutrum sed sem quis venenatis. Proin viverra risus a eros volutpat tempor. In quis arcu et eros porta lobortis sit",
+    "imgBig": "../dist/ipad-white.png",
+    "icons": ["../dist/icon-fa-apple.png", "../dist/icon-fa-android.png", "../dist/icon-fa-windows.png"]
+  }]
 }

@@ -1,77 +1,29 @@
 <template>
   <main class="main">
     <div class="container">
-      <swiper :options="swiperOption" ref="mySwiper" @someSwiperEvent="callback">
-        <swiper-slide class="main-content">
+      <swiper :options="swiperOption" ref="mySwiper">
+        <swiper-slide 
+          class="main-content"
+              v-for="slideItem of slideItems"
+              :key="slideItem.id"
+        >
           <div class="info">
-            <h1 class="info__primary">
-              Inspire your inspiration
-            </h1>
-            <h2 class="info__secondary">
-              Simple to use for your app, products showcase and your inspiration
-            </h2>
-            <div class="info__decription">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros eget tellus
-              tristique bibendum. Donec rutrum sed sem quis venenatis. Proin viverra risus a eros
-              volutpat
-              tempor. In quis arcu et eros porta lobortis sit
-            </div>
+            <h1 class="info__primary">{{slideItem.titleFirst}}</h1>
+            <h2 class="info__secondary">{{slideItem.titleSecond}}</h2>
+            <div class="info__decription">{{slideItem.description}}</div>
             <div class="info__icons d-flex">
-              <img src="../assets/icon-fa-apple.png" alt="apple">
-              <img src="../assets/icon-fa-android.png" alt="android">
-              <img src="../assets/icon-fa-windows.png" alt="windows">
+              <img :src="item" alt="platform"
+                v-for="(item, index) in slideItem.icons"
+                :key="index"
+              >
             </div>
           </div>
           <div class="ipad-img">
-            <img class="img-item" src="../assets/ipad-white.png" alt="ipad">
-          </div>
-        </swiper-slide>
-        <swiper-slide class="main-content">
-          <div class="info">
-            <h1 class="info__primary">
-              Inspire your inspiration
-            </h1>
-            <h2 class="info__secondary">
-              Simple to use for your app, products showcase and your inspiration
-            </h2>
-            <div class="info__decription">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros eget tellus
-              tristique bibendum. Donec rutrum sed sem quis venenatis. Proin viverra risus a eros
-              volutpat
-              tempor. In quis arcu et eros porta lobortis sit
-            </div>
-            <div class="info__icons d-flex">
-              <img src="../assets/icon-fa-apple.png" alt="apple">
-              <img src="../assets/icon-fa-android.png" alt="android">
-              <img src="../assets/icon-fa-windows.png" alt="windows">
-            </div>
-          </div>
-          <div class="ipad-img">
-            <img class="img-item" src="../assets/ipad-white.png" alt="ipad">
-          </div>
-        </swiper-slide>
-        <swiper-slide class="main-content">
-          <div class="info">
-            <h1 class="info__primary">
-              Inspire your inspiration
-            </h1>
-            <h2 class="info__secondary">
-              Simple to use for your app, products showcase and your inspiration
-            </h2>
-            <div class="info__decription">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros eget tellus
-              tristique bibendum. Donec rutrum sed sem quis venenatis. Proin viverra risus a eros
-              volutpat
-              tempor. In quis arcu et eros porta lobortis sit
-            </div>
-            <div class="info__icons d-flex">
-              <img src="../assets/icon-fa-apple.png" alt="apple">
-              <img src="../assets/icon-fa-android.png" alt="android">
-              <img src="../assets/icon-fa-windows.png" alt="windows">
-            </div>
-          </div>
-          <div class="ipad-img">
-            <img class="img-item" src="../assets/ipad-white.png" alt="ipad">
+            <img 
+              class="img-item" 
+              :src="slideItem.imgBig" 
+              alt="ipad"
+            >
           </div>
         </swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
@@ -94,14 +46,29 @@
         swiperOption: {
           pagination: {
             el: '.swiper-pagination',
-            clickable: true
+            clickable: true,
           }
-        }
+        },
+        slideItems: [],
+        resource: null
+
       }
     },
     components: {
       swiper,
       swiperSlide
+    },
+      created() {
+        this.resource = this.$resource('slideinfo')
+      },
+      mounted() {
+        this.loadSlideItems()
+      },
+      methods: {
+        loadSlideItems() {
+          this.resource.get().then(response => response.json())
+            .then(slideinfo => this.slideItems = slideinfo)
+        }
     }
   }
 </script>
