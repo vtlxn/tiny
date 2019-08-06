@@ -5,9 +5,27 @@
         <div class="footer__top">
           <div class="title">{{ footerItems.title }}</div>
           <div class="description">{{ footerItems.description }}</div>
-          <form class="email-field">
-            <input id="mail" type="email" placeholder="Enter your email to update" class="text-field">
-            <button class="button" disabled>SUBMIT</button>
+          <form class="email-field" @submit.prevent>
+            <label for="email" @submit.prevent></label>
+            <input 
+              id="email" 
+              type="email" 
+              :placeholder="inputPlaceholder"
+              class="text-field"
+              :class="{'text-field--error' : $v.email.$error && (!$v.email.required || !$v.email.email)}"
+              :disabled="isEmailSent"
+              @input="$v.email.$touch()"
+              v-model="email"
+            >
+            <button 
+              type="submit"
+              class="button"
+              :class="{'button--green' : isEmailSent}"
+              :disabled="!$v.email.required || !$v.email.email"
+              @click="submitForm"
+            >
+              {{ btnName }}
+            </button>
           </form>
         </div>
         <div class="footer__social">
@@ -15,7 +33,7 @@
             v-for="(social, index) in footerItems.imgURLs"
             :key="index"
             :href="social.linkURL"
-          ><img :src="social.imgURL" :alt="social.alt" class="social-icon"></a>
+          ><img :src="getDir(social.imgURL)" :alt="social.alt" class="social-icon"></a>
         </div>
         <div class="footer-bottom">
           <div class="footer__contacts">
@@ -47,26 +65,58 @@
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        footerItems: [],
-        resource: null
-      }
-    },
-    created() {
-      this.resource = this.$resource('footer')
-    },
-    mounted() {
-      this.loadFooter()
-    },
-    methods: {
-      loadFooter() {
-        this.resource.get().then(response => response.json())
-          .then(footer => this.footerItems = footer)
-      }
+import { required, email } from "vuelidate/lib/validators";
+
+export default {
+  data() {
+    return {
+      footerItems: [],
+      resource: null,
+      email: '',
+      btnName: 'Submit',
+      isEmailSent: false,
+      inputPlaceholder: 'Enter your email to update'
     }
+  },
+  created() {
+    this.resource = this.$resource('footer')
+  },
+  mounted() {
+    this.loadFooter()
+  },
+  methods: {
+    loadFooter() {
+      this.resource.get().then(response => response.json())
+        .then(footer => this.footerItems = footer)
+    },
+    getDir(img) {
+      return require('../assets/' + img)
+    },
+    submitForm() {
+      Email.send({
+        Host: 'mail.adm.tools',
+        Username: 'products@vtlxn.xyz',
+        Password: 'l70Yo02vIVAd',
+        To: this.email,
+        From: 'products@vtlxn.xyz',
+        Subject: 'Test site',
+        Body: 'Привіт, це перевірка тестового завдання, яке зробив Віталій Бережний.'
+      });
+      this.email = ''
+      this.btnName = 'Thanks!'
+      this.$v.email.$reset()
+      this.isEmailSent = true
+      this.inputPlaceholder = 'Email sent to your inbox'
+    }
+  },
+  validations: {
+  email: {
+    required,
+    email
   }
+}
+}
+    
 </script>
 
 <style lang="scss">

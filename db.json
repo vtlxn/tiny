@@ -78,22 +78,22 @@
     "imgURLs": [{
       "id": 1,
       "alt": "fb",
-      "imgURL": "../dist/fb.png",
+      "imgURL": "fb.png",
       "linkURL": "#"
     },{
       "id": 2,
       "alt": "tw",
-      "imgURL": "../dist/tw.png",
+      "imgURL": "tw.png",
       "linkURL": "#"
     },{
       "id": 3,
       "alt": "gp",
-      "imgURL": "../dist/gp.png",
+      "imgURL": "gp.png",
       "linkURL": "#"
     },{
       "id": 4,
       "alt": "pt",
-      "imgURL": "../dist/pt.png",
+      "imgURL": "pt.png",
       "linkURL": "#"
     }],
     
