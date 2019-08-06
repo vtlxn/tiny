@@ -8,9 +8,9 @@
               :key="slideItem.id"
         >
           <div class="info">
-            <h1 class="info__primary">{{slideItem.titleFirst}}</h1>
-            <h2 class="info__secondary">{{slideItem.titleSecond}}</h2>
-            <div class="info__decription">{{slideItem.description}}</div>
+            <h1 class="info__primary">{{ slideItem.titleFirst }}</h1>
+            <h2 class="info__secondary">{{ slideItem.titleSecond }}</h2>
+            <div class="info__decription">{{ slideItem.description }}</div>
             <div class="info__icons d-flex">
               <img :src="item" alt="platform"
                 v-for="(item, index) in slideItem.icons"

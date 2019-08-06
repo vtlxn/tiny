@@ -23,18 +23,154 @@
     "imgBig": "../dist/ipad-white.png",
     "icons": ["../dist/icon-fa-apple.png", "../dist/icon-fa-android.png", "../dist/icon-fa-windows.png"]
   }, {
-    "id": 1,
+    "id": 2,
     "titleFirst": "Inspire your inspiration",
     "titleSecond": "Simple to use for your app, products showcase and your inspiration",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros eget tellus tristique bibendum. Donec rutrum sed sem quis venenatis. Proin viverra risus a eros volutpat tempor. In quis arcu et eros porta lobortis sit",
     "imgBig": "../dist/ipad-white.png",
     "icons": ["../dist/icon-fa-apple.png", "../dist/icon-fa-android.png", "../dist/icon-fa-windows.png"]
   }, {
-    "id": 1,
+    "id": 3,
     "titleFirst": "Inspire your inspiration",
     "titleSecond": "Simple to use for your app, products showcase and your inspiration",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros eget tellus tristique bibendum. Donec rutrum sed sem quis venenatis. Proin viverra risus a eros volutpat tempor. In quis arcu et eros porta lobortis sit",
     "imgBig": "../dist/ipad-white.png",
     "icons": ["../dist/icon-fa-apple.png", "../dist/icon-fa-android.png", "../dist/icon-fa-windows.png"]
-  }]
+  }],
+  "features": {
+    "title": "Tinyone features",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros eget tellus tristique bibendum. Donec rutrum sed sem quis venenatis.",
+    "info": [{
+      "id": 1,
+      "title": "Fully Responsive",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros eget tellus tristique bibendum.",
+      "imgURL": "../dist/icon-font-1.png"
+    }, {
+      "id": 2,
+      "title": "HTML3 & CSS3",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros eget tellus tristique bibendum.",
+      "imgURL": "../dist/icon-font-2.png"
+    }, {
+      "id": 3,
+      "title": "Fully Layered PSD",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros eget tellus tristique bibendum.",
+      "imgURL": "../dist/icon-font-3.png"
+    }, {
+      "id": 4,
+      "title": "Email Template",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros eget tellus tristique bibendum.",
+      "imgURL": "../dist/icon-font-4.png"
+    }, {
+      "id": 5,
+      "title": "Font Awesome Icons",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros eget tellus tristique bibendum.",
+      "imgURL": "../dist/icon-font-5.png"
+    }, {
+      "id": 6,
+      "title": "Free to download",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros eget tellus tristique bibendum.",
+      "imgURL": "../dist/icon-font-6.png"
+    }]
+  },
+  "footer": {
+    "title": "Keep in touch with us",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros eget tellus tristique bibendum. Donec rutrum sed sem quis venenatis.",
+    "imgURLs": [{
+      "id": 1,
+      "alt": "fb",
+      "imgURL": "../dist/fb.png",
+      "linkURL": "#"
+    },{
+      "id": 2,
+      "alt": "tw",
+      "imgURL": "../dist/tw.png",
+      "linkURL": "#"
+    },{
+      "id": 3,
+      "alt": "gp",
+      "imgURL": "../dist/gp.png",
+      "linkURL": "#"
+    },{
+      "id": 4,
+      "alt": "pt",
+      "imgURL": "../dist/pt.png",
+      "linkURL": "#"
+    }],
+    
+    
+    "links": [{
+        "link1": {
+          "id": 1,
+          "name": "Examples",
+          "url": "#"
+        },
+        "link2": {
+          "id": 2,
+          "name": "Shop",
+          "url": "#"
+        },
+        "link3": {
+          "id": 3,
+          "name": "Licence",
+          "url": "#"
+        }
+      },
+      {
+        "link1": {
+          "id": 1,
+          "name": "Contact",
+          "url": "#"
+        },
+        "link2": {
+          "id": 2,
+          "name": "About",
+          "url": "#"
+        },
+        "link3": {
+          "id": 3,
+          "name": "Privacy",
+          "url": "#"
+        },
+        "link4": {
+          "id": 4,
+          "name": "Terms",
+          "url": "#"
+        }
+      },
+      {
+        "link1": {
+          "id": 1,
+          "name": "Download",
+          "url": "#"
+        },
+        "link2": {
+          "id": 2,
+          "name": "Support",
+          "url": "#"
+        },
+        "link3": {
+          "id": 3,
+          "name": "Documents",
+          "url": "#"
+        }
+      },
+      {
+        "link1": {
+          "id": 1,
+          "name": "Media",
+          "url": "#"
+        },
+        "link2": {
+          "id": 2,
+          "name": "Blog",
+          "url": "#"
+        },
+        "link3": {
+          "id": 3,
+          "name": "Forums",
+          "url": "#"
+        }
+      }
+    ]
+  }
 }

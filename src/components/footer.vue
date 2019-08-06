@@ -3,24 +3,19 @@
     <div class="container">
       <div class="row flex-column">
         <div class="footer__top">
-          <div class="title">
-            Keep in touch with us
-          </div>
-          <div class="description">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros eget tellus
-            tristique bibendum. Donec rutrum sed sem quis venenatis.
-          </div>
+          <div class="title">{{ footerItems.title }}</div>
+          <div class="description">{{ footerItems.description }}</div>
           <form class="email-field">
             <input id="mail" type="email" placeholder="Enter your email to update" class="text-field">
             <button class="button" disabled>SUBMIT</button>
           </form>
-
         </div>
         <div class="footer__social">
-          <a href="#"><img src="../assets/fb.png" class="social-icon" alt="fb"></a>
-          <a href="#"><img src="../assets/tw.png" class="social-icon" alt="tw"></a>
-          <a href="#"><img src="../assets/gp.png" class="social-icon" alt="gp"></a>
-          <a href="#"><img src="../assets/pt.png" class="social-icon" alt="pt"></a>
+          <a 
+            v-for="(social, index) in footerItems.imgURLs"
+            :key="index"
+            :href="social.linkURL"
+          ><img :src="social.imgURL" :alt="social.alt" class="social-icon"></a>
         </div>
         <div class="footer-bottom">
           <div class="footer__contacts">
@@ -31,26 +26,18 @@
             <br><a href="tel:+84435149182" class="link-item">+844 35149182</a>
           </div>
           <div class="footer__info">
-            <div class="footer-links">
-              <div class="footer-link"><a class="link-item" href="#">Examples</a></div>
-              <div class="footer-link"><a class="link-item" href="#">Shop</a></div>
-              <div class="footer-link"><a class="link-item" href="#">Licence</a></div>
-            </div>
-            <div class="footer-links">
-              <div class="footer-link"><a class="link-item" href="#">Contact</a></div>
-              <div class="footer-link"><a class="link-item" href="#">About</a></div>
-              <div class="footer-link"><a class="link-item" href="#">Privacy</a></div>
-              <div class="footer-link"><a class="link-item" href="#">Terms</a></div>
-            </div>
-            <div class="footer-links">
-              <div class="footer-link"><a class="link-item" href="#">Download</a></div>
-              <div class="footer-link"><a class="link-item" href="#">Support</a></div>
-              <div class="footer-link"><a class="link-item" href="#">Documents</a></div>
-            </div>
-            <div class="footer-links">
-              <div class="footer-link"><a class="link-item" href="#">Media</a></div>
-              <div class="footer-link"><a class="link-item" href="#">Blog</a></div>
-              <div class="footer-link"><a class="link-item" href="#">Forums</a></div>
+            <div 
+              class="footer-links"
+              v-for="(column, index) in footerItems.links"
+              :key="index"
+            >
+              <div 
+                class="footer-link"
+                v-for="linkItem of column"
+                :key="linkItem.id"
+              >
+                <a class="link-item" :href="linkItem.url">{{ linkItem.name }}  </a>
+              </div>
             </div>
           </div>
         </div>
@@ -61,9 +48,25 @@
 
 <script>
   export default {
-
+    data() {
+      return {
+        footerItems: [],
+        resource: null
+      }
+    },
+    created() {
+      this.resource = this.$resource('footer')
+    },
+    mounted() {
+      this.loadFooter()
+    },
+    methods: {
+      loadFooter() {
+        this.resource.get().then(response => response.json())
+          .then(footer => this.footerItems = footer)
+      }
+    }
   }
-
 </script>
 
 <style lang="scss">
