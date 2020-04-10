@@ -29,13 +29,13 @@
 <style lang="scss">
 
   body {
-      font-family: 'PT Sans';
-      min-width: 360px !important;
+    font-family: 'PT Sans';
+    min-width: 360px !important;
   }
 
   @media (min-width: 1200px) {
     .container {
-        max-width: 960px !important;
+      max-width: 960px !important;
     }
 }
 </style>
